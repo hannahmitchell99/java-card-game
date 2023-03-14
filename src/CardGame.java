@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class CardGame {
     public static ArrayList<Card> deckOfCards = new ArrayList<Card>(52);
@@ -15,12 +17,32 @@ public class CardGame {
         int count = 0;
         for (int i = 0; i < symbol.length; i++){
             for (int index=0; index < suit.length; index++){
-                Card card = new Card(symbol[i], suit[index], values[i]);
+                Card card = new Card(suit[index],symbol[i] , values[i]);
                 deckOfCards.add(count,card);
                 count++;
             }
         }
         return deckOfCards;
+    }
+
+    public Card dealCard(){
+        return deckOfCards.get(0);
+    }
+
+    public ArrayList<Card> sortDeckInNumberOrder(){
+        Collections.sort(deckOfCards, Comparator.comparing(Card::getValue));
+        return deckOfCards;
+    }
+
+    public ArrayList<Card> sortDeckIntoSuits(){
+        Collections.sort(deckOfCards, Comparator.comparing(Card::getSuit));
+        return deckOfCards;
+    }
+
+    public ArrayList<Card> shuffleDeck(){
+        Collections.shuffle(deckOfCards);
+        return deckOfCards;
+
     }
 
 

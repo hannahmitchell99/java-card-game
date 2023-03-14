@@ -6,5 +6,10 @@ public class Main {
         System.out.println(first.getDeck().size());
         System.out.println(first.deckOfCards);
 
+        System.out.println(first.dealCard());
+        System.out.println(first.sortDeckInNumberOrder());
+        System.out.println(first.sortDeckIntoSuits());
+        System.out.println(first.shuffleDeck());
+
     }
 }
