@@ -3,8 +3,10 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class CardGame {
-    public static ArrayList<Card> deckOfCards = new ArrayList<Card>(52);
+    public static ArrayList<Card> deckOfCards = new ArrayList<Card>();
     private String name;
+    public static ArrayList<Card> discardPile = new ArrayList<Card>();
+
 
     public CardGame(String name) {
         this.name = name;
@@ -26,7 +28,10 @@ public class CardGame {
     }
 
     public Card dealCard(){
-        return deckOfCards.get(0);
+        Card top = deckOfCards.get(0);
+        discardPile.add(top);
+        deckOfCards.remove(0);
+        return top;
     }
 
     public ArrayList<Card> sortDeckInNumberOrder(){
@@ -42,9 +47,7 @@ public class CardGame {
     public ArrayList<Card> shuffleDeck(){
         Collections.shuffle(deckOfCards);
         return deckOfCards;
-
     }
-
 
 }
 
