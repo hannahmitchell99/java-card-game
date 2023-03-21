@@ -3,16 +3,31 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class CardGame {
-    public static ArrayList<Card> deckOfCards = new ArrayList<Card>();
+    private static ArrayList<Card> deckOfCards = new ArrayList<Card>();
     private String name;
-    public static ArrayList<Card> discardPile = new ArrayList<Card>();
-
+    private static ArrayList<Card> discardPile = new ArrayList<Card>();
 
     public CardGame(String name) {
         this.name = name;
     }
 
-    public ArrayList<Card> getDeck() {
+    public static ArrayList<Card> getDeckOfCards() {
+        return deckOfCards;
+    }
+
+    public static void setDeckOfCards(ArrayList<Card> deckOfCards) {
+        CardGame.deckOfCards = deckOfCards;
+    }
+
+    public static ArrayList<Card> getDiscardPile() {
+        return discardPile;
+    }
+
+    public static void setDiscardPile(ArrayList<Card> discardPile) {
+        CardGame.discardPile = discardPile;
+    }
+
+    public ArrayList<Card> getDeck() { //populate deck
         String[] suit = {"♣", "♠", "♦", "♥"};
         String[] symbol = {"A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2"};
         int[] values = {1,13, 12, 11, 10,9,8,7,6,5,4,3,2};
@@ -51,3 +66,4 @@ public class CardGame {
 
 }
 
+// reset card method?

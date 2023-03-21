@@ -3,9 +3,9 @@ public class Main {
 
         Snap game = new Snap("snap");
         game.getDeck();
-        game.userTurnInput();
-        game.snapGame();
-        System.out.println(game.discardPile);
+        game.userStartInput();
+        game.snapSingleGame();
+        game.countDiscard();
 
 
 
